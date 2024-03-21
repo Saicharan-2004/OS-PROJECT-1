@@ -98,7 +98,7 @@ int main()
 
     (*shared_order)[0][5] = 0; //  0 - table process running 1 - table process terminated hence terminate waiter
 
-    key_t flags_key = ftok(".", 564);
+    key_t flags_key = ftok(".", 564 + table_id);
 
     int flags_shm_id = shmget(flags_key, sizeof(int) * largeValue, IPC_CREAT | 0666);
     if (flags_shm_id == -1)
